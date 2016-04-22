@@ -7,10 +7,33 @@
     </div>
 </div>
 <div class="layout-header skin-header">
-    <div class="logo">
-        <img src="/assets/img/logo.png" alt="Graduation Guide" />
+    <div class="row" s-pxy="sm">
+        <div class="col-1">
+            <!--<div class="logo">-->
+            <img src="/assets/img/logo.png" alt="Graduation Guide" />
+            <!--</div>-->
+        </div>
+        <div class="col-10">
+            <div class="breadcrumbs breadcrumbs--medium breadcrumbs--light">
+                <div class="breadcrumbs__breadcrumb"
+                     ng-repeat="step in wizardConfig.steps"
+                     ng-disabled="!stepIsAvailable(step)"
+                     ng-click="goToStep(step)"
+                     ng-class="{'breadcrumbs__breadcrumb--active': step == currentStep }">
+                    {{step.name}}
+                </div>
+            </div>
+        </div>
+        <div class="col-1">
+            <div class="button button--rounded button--medium button--accent"
+                 ng-click="finish()"
+                 ng-disabled="!allStepsComplete()">
+                <i class="fa fa-check"></i>
+            </div>
+        </div>
     </div>
 </div>
+
 <div class="layout-main skin-background">
     <div ui-view class="layout-main__content-box skin-content"></div>
 </div>

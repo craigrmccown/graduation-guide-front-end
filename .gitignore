@@ -52,3 +52,6 @@ src/index.html
 *.css
 .sass-cache
 *.swp
+
+# WebStorm
+.idea
