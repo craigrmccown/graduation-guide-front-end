@@ -3,21 +3,21 @@
         <h1>Select Your Tracks</h1>
     </div>
 </div>
-<div ng-repeat="major in majors">
+<div ng-repeat="major in majors" s-pb="8">
     <div class="row">
-        <div class="col-12">
-            <h3>{{major.name}}</h3>
+        <div class="col-12" s-pb="4">
+            <h5 t-font="small-caps h5" c-text="">{{major.name}} Tracks</h5>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="card card--fixed card--light card--selectable" ng-repeat="track in major.tracks" ng-click="selectTrack(track)">
-                <div class="card__header"
-                    ng-class="{'card__header--selected': isSelected(track)}">
-                    {{track.name}} 
-                </div>
-                <div class="card__body">{{track.description}}</div>
+    <div class="row" s-px="4">
+        <div s-mr="2" s-mb="2"
+             class="card card--fixed card--light card--selectable"
+             ng-repeat="track in major.tracks" ng-click="selectTrack(track)">
+            <div class="card__header"
+                 ng-class="{'card__header--selected': isSelected(track)}">
+                {{track.name}}
             </div>
+            <div class="card__body">{{track.description}}</div>
         </div>
     </div>
 </div>

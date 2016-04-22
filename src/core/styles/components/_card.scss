@@ -1,6 +1,6 @@
 .card {
-    padding-right: $gutter;
-    padding-bottom: $gutter;
+
+    @include box-shadow($z1-shadow);
 
     .card__header, .card__body, .card__footer {
         padding: $gutter;
@@ -40,11 +40,11 @@
 
 .card--light {
     .card__header, .card__body, .card__footer{
-        border-color: $dark-mono;
+        border-color: $mono-light;
     }
 
     .card__header {
-        background: $medium-light-mono;
+        background: $mono-lighter;
         color: $medium-dark-mono;
     }
 
@@ -54,7 +54,7 @@
     }
 
     .card__footer {
-        background: $medium-light-mono;
+        background: $mono-lighter;
         color: $medium-dark-mono;
     }
 }
@@ -72,7 +72,7 @@
     &:hover {
         .card__header {
             &:not(.card__header--selected) {
-                color: darken($medium-dark-mono, 25%);
+                color: darken($mono-dark, 25%);
             }
         }
     }
@@ -80,7 +80,7 @@
     &:active {
         .card__header {
             &:not(.card__header--selected) {
-                background: darken($medium-light-mono, 5%);
+                background: darken($mono-lighter, 5%);
             }
         }
     }

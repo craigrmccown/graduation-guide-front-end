@@ -5,7 +5,9 @@
 </div>
 <div class="row">
     <div class="col-12">
-        <div class="card card--fixed card--light card--selectable" ng-repeat="major in majors" ng-click="selectMajor(major)">
+        <div s-mr="2" s-mb="2"
+             class="card card--fixed card--light card--selectable"
+             ng-repeat="major in majors" ng-click="selectMajor(major)">
             <div class="card__header"
                 ng-class="{'card__header--selected': isSelected(major)}">
                 {{ major.name }}

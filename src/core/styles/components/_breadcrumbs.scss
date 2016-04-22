@@ -18,23 +18,23 @@
     }
 }
 
-@mixin breadcrumbs-color($border-color, $bg-color, $fg-color) {
+@mixin breadcrumbs-color($border-color, $mono-light, $fg-color) {
     border-style: solid;
-    border-color: $border-color;
+    border-color: $mono-light;
 
     .breadcrumbs__breadcrumb {
-        background: $bg-color;
+        background: $mono-lighter;
         color: $fg-color;
-        border-right-color: $border-color;
+        border-right-color: $mono-lighter;
 
         &:before {
             border-style: solid;
-            border-left-color: $border-color;
+            border-left-color: $mono-light;
         }
 
         &:after {
             border-style: solid;
-            border-left-color: $bg-color;
+            border-left-color: $mono-lighter;
         }
 
         &:hover:not(.breadcrumbs__breadcrumb--active) {
@@ -42,28 +42,28 @@
         }
 
         &:active:not(.breadcrumbs__breadcrumb--active) {
-            background: darken($bg-color, 5%);
+            background: darken($mono-lighter, 5%);
 
             &:after {
-                border-left-color: darken($bg-color, 5%);
+                border-left-color: darken($mono-lighter, 5%);
             }
         }
 
         &.breadcrumbs__breadcrumb--active {
-            color: $border-color;
-            background: lighten($bg-color, 15%);
+            color: $mono-dark;
+            background: lighten($mono-lighter, 15%);
 
             &:after {
-                border-left-color: lighten($bg-color, 15%);
+                border-left-color: lighten($mono-lighter, 15%);
             }
         }
 
         &[disabled="disabled"] {
             color: lighten($fg-color, 20%) !important;
-            background: $bg-color !important;
+            background: $mono-lighter !important;
 
             &:after {
-                border-left-color: $bg-color !important;
+                border-left-color: $mono-lighter !important;
             }
         }
     }
