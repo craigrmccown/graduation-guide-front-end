@@ -82,37 +82,6 @@ $z4-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 $z5-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 
 
-/* grid */
-$paragraph: 14px;
-$base-font-size: $paragraph;
-$base-type-unit: $base-font-size / 2;
-
-$base-spacing-unit: 5px;
-$base-border-width: 2px;
-$base-border-radius: 6px;
-
-$pad-y-xs: $base-type-unit*1;
-$pad-x-xs: $pad-y-xs*1.5;
-
-$pad-y-sm: $base-type-unit*1.5;
-$pad-x-sm: $pad-y-sm*2;
-
-$pad-y-md: $base-type-unit*2;
-$pad-x-md: $pad-y-md*2;
-
-$pad-y-lg: $base-type-unit*2.5;
-$pad-x-lg: $pad-y-lg*2;
-
-$pad-xs: $pad-y-xs $pad-x-xs;
-$pad-sm: $pad-y-sm $pad-x-sm;
-$pad-md: $pad-y-md $pad-x-md;
-$pad-lg: $pad-y-lg $pad-x-lg;
-
-
-$num-cols: 12;
-$num-rows: 6;
-$num-spacing-units: 12;
-
 
 
 
@@ -125,7 +94,6 @@ $num-spacing-units: 12;
 $base-font-family:  'Open Sans', sans-serif !important;
 $small-caps-multiplier: .75;
 
-// Font Sizes
 
 $h1: 35px;
 $h2: 28px;
@@ -139,6 +107,12 @@ $h3-small-caps: floor($h3 * $small-caps-multiplier);
 $h4-small-caps: floor($h4 * $small-caps-multiplier);
 $h5-small-caps: floor($h5 * $small-caps-multiplier);
 $h6-small-caps: floor($h6 * $small-caps-multiplier);
+
+$paragraph: 14px;
+$paragraph-lead: 18px;
+
+$base-font-size: $paragraph;
+$base-type-unit: $base-font-size / 2;
 
 $paragraph: 14px;
 $paragraph-lead: 18px;
@@ -166,3 +140,41 @@ $h5-small-caps-line-height: floor($h5-small-caps * 1.5);
 $h6-small-caps-line-height: floor($h6-small-caps * 1.5);
 
 $small-line-height: floor($base-line-height * .75);
+
+// Spacing Units
+
+$base-spacing-unit: 5px;
+$base-border-width: 2px;
+$base-border-radius: 6px;
+
+$pad-y-xs: $base-type-unit*1;
+$pad-x-xs: $pad-y-xs*1.5;
+
+$pad-y-sm: $base-type-unit*1.5;
+$pad-x-sm: $pad-y-sm*2;
+
+$pad-y-md: $base-type-unit*2;
+$pad-x-md: $pad-y-md*2;
+
+$pad-y-lg: $base-type-unit*2.5;
+$pad-x-lg: $pad-y-lg*2;
+
+$pad-xs: $pad-y-xs $pad-x-xs;
+$pad-sm: $pad-y-sm $pad-x-sm;
+$pad-md: $pad-y-md $pad-x-md;
+$pad-lg: $pad-y-lg $pad-x-lg;
+
+$num-cols: 12;
+$num-rows: 6;
+$num-spacing-units: 12;
+
+// Browsers take floor of line-height, as opposed to round for width / height
+$dimensions-xs: ($pad-y-xs*2) + $small-line-height;
+$dimensions-sm: ($pad-y-sm*2) + $h6-small-caps-line-height;
+$dimensions-md: ($pad-y-md*2) + $h5-small-caps-line-height;
+$dimensions-lg: ($pad-y-lg*2) + $h4-small-caps-line-height;
+
+$bordered-dimensions-xs: $dimensions-xs + ($base-border-width*2);
+$bordered-dimensions-sm: $dimensions-sm + ($base-border-width*2);
+$bordered-dimensions-md: $dimensions-md + ($base-border-width*2);
+$bordered-dimensions-lg: $dimensions-lg + ($base-border-width*2);

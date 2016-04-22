@@ -22,6 +22,10 @@
         font-size: $medium-small-font-size;
     }
 
+    &:hover {
+        @include box-shadow($z2-shadow);
+    }
+
     &:not(.card--selectable) {
         .card_header {
             cursor: default;
