@@ -2,6 +2,7 @@ angular.module('gg.app')
     .controller('AppCtrl', function($scope, $state, CurrentUser, Notifications) {
 
         $scope.isUserOnboarded = CurrentUser.majors && CurrentUser.majors.length;
+        $scope.CurrentUser = CurrentUser;
 
         var userProfileCfg = {
             name: 'User Profile',

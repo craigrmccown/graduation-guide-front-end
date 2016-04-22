@@ -15,7 +15,7 @@
         </div>
         <div class="col-11">
             <div class="row" ng-if="isUserOnboarded">
-                User Profile
+                <span t-font="h2">{{currentStep.name}}</span>
             </div>
             <div class="row" ng-if="!isUserOnboarded">
                 <div class="col-11">

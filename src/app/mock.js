@@ -1,11 +1,13 @@
 angular.module('gg.mock', ['gg.app', 'ngMockE2E'])
     .run(function($httpBackend) {
+        var USER_EMAIL = 'craigrmccown@gmail.com';
         var userMajors = localStorage.getItem('user.majors');
         var userTracks = localStorage.getItem('user.tracks');
         var userMinors = localStorage.getItem('user.minors');
 
         var user = {
             id: 100,
+            email: USER_EMAIL,
             majors: userMajors ? angular.fromJson(userMajors) : [],
             tracks: userTracks ? angular.fromJson(userTracks) : [],
             minors: userMinors ? angular.fromJson(userMinors) : []
@@ -172,7 +174,7 @@ angular.module('gg.mock', ['gg.app', 'ngMockE2E'])
             function(method, url, data, headers, params) {
                 var json = angular.fromJson(data);
 
-                if (json.email != 'craigrmccown@gmail.com' || json.password != 'password123') {
+                if (json.email != USER_EMAIL || json.password != 'password123') {
                     return [401, {}, {}];
                 }
 
