@@ -48,6 +48,7 @@
 
     <!-- core services -->
     <script src="/core/services/services.js"></script>
+    <script src="/core/services/directives.js"></script>
     <script src="/core/services/notifications.js"></script>
     <script src="/core/services/user.js"></script>
     <script src="/core/services/auth.js"></script>

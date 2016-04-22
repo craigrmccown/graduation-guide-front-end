@@ -2,30 +2,24 @@
 
 .layout-header {
     @include skin-content;
-    //@include skin-header;
-    //background: $white;
-
     position: relative;
-    //top: 0;
-    //left: 0;
-    //right: 0;
-    //height: $large-header-height;
-
+    height: $large-header-height;
     @include box-shadow($z1-shadow);
-
-    //.logo {
-    //    position: absolute;
-    //    top: $gutter * 3 / 4;
-    //    left: $gutter;
-    //}
+    z-index: 1;
 }
 
 .layout-main {
     background: $white;
+    position: relative;
+    bottom: 0;
+
     height: 100%;
+    z-index: 0;
 }
 
 
 .layout-main__content-box {
-
+    position: relative;
+    height: 100%;
+    bottom: 0;
 }
