@@ -1,5 +1,13 @@
 angular.module('gg.app')
     .controller('AppCtrl', function($scope, $state, CurrentUser, Notifications) {
+
+        $scope.isUserOnboarded = CurrentUser.majors && CurrentUser.majors.length;
+
+        var userProfileCfg = {
+            name: 'User Profile',
+            state: 'app.profile'
+        };
+
         $scope.wizardConfig = {
             steps: [
                 {
@@ -101,7 +109,7 @@ angular.module('gg.app')
             }
         }
 
-        function getCurrentStep() {
+        function getCurrentWizardStep() {
             for (var i = 0; i < $scope.wizardConfig.steps.length; i ++) {
                 if (!$scope.wizardConfig.steps[i].isComplete()) {
                     return i == 0 ? $scope.wizardConfig.steps[0] : $scope.wizardConfig.steps[i - 1];
@@ -111,7 +119,7 @@ angular.module('gg.app')
             return $scope.wizardConfig.steps[$scope.wizardConfig.steps.length - 1];
         }
 
-        $scope.currentStep = getCurrentStep();
+        $scope.currentStep = $scope.isUserOnboarded ? userProfileCfg : getCurrentWizardStep();
         $state.go($scope.currentStep.state);
 
     });

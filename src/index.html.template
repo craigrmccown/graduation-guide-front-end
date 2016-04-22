@@ -35,6 +35,10 @@
     <!-- register -->
     <script src="/app/register/register.controllers.js"></script>
 
+    <!-- profile -->
+    <script src="/app/profile/profile.config.js"></script>
+    <script src="/app/profile/profile.controller.js"></script>
+
     <!-- criteria -->
     <script src="/app/criteria/criteria.config.js"></script>
     <script src="/app/criteria/criteria.controllers.js"></script>

@@ -7,6 +7,7 @@ angular.module('gg.app')
 
         $urlRouterProvider
             .when('/', '/app')
+            .when('/app/', '/app')
             .when('', '/app')
             .otherwise('/app');
 
