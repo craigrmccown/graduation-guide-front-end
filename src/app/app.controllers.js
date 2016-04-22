@@ -1,6 +1,7 @@
 angular.module('gg.app')
     .controller('AppCtrl', function($scope, $state, CurrentUser, Notifications) {
 
+        /* if already onboarded just send to their profile view */
         $scope.isUserOnboarded = CurrentUser.majors && CurrentUser.majors.length;
         $scope.CurrentUser = CurrentUser;
 
@@ -122,5 +123,4 @@ angular.module('gg.app')
 
         $scope.currentStep = $scope.isUserOnboarded ? userProfileCfg : getCurrentWizardStep();
         $state.go($scope.currentStep.state);
-
     });

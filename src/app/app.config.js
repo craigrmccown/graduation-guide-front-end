@@ -7,8 +7,8 @@ angular.module('gg.app')
 
         $urlRouterProvider
             .when('/', '/app')
-            .when('/app/', '/app')
             .when('', '/app')
+            .when('/app/', '/app')
             .otherwise('/app');
 
         $urlMatcherFactoryProvider.strictMode(false);
@@ -18,7 +18,6 @@ angular.module('gg.app')
                 url: '/app',
                 controller: 'AppCtrl',
                 templateUrl: '/app/app.html',
-                abstract: true,
                 resolve: {
                     'CurrentUser': function(User) {
                         return User.getCurrent();
@@ -66,7 +65,7 @@ angular.module('gg.app')
 
         $rootScope.$on('auth.loginRequired', function() {
             $state.go('login');
-        })
+        });
 
         $rootScope.$on('notification.success', function(event, message) {
             Notifications.notifySuccess(message, 3000);

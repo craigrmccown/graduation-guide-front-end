@@ -8,7 +8,7 @@ angular.module('gg.app')
                 abstract: true
             })
             .state('app.criteria.majors', {
-                url: '',
+                url: '/majors',
                 controller: 'CriteriaMajorsCtrl',
                 templateUrl: '/app/criteria/views/criteria.majors.html',
                 resolve: {

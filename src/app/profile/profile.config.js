@@ -9,7 +9,7 @@ angular.module('gg.app')
     .config(function($stateProvider) {
         $stateProvider
             .state('app.profile', {
-                url: '',
+                url: '/profile',
                 controller: 'ProfileCtrl',
                 templateUrl: '/app/profile/views/profile.html'
             });
