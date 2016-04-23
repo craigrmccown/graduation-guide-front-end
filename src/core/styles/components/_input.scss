@@ -80,7 +80,7 @@ input {
 }
 
 .input-sm {
-  @extend .#{$ns}input;
+  @extend .input;
   height: $bordered-dimensions-sm;
   padding: $pad-sm;
 
@@ -95,7 +95,7 @@ input {
 }
 
 .input-lg {
-  @extend .#{$ns}input;
+  @extend .input;
   height: $bordered-dimensions-lg;
   padding: $pad-lg;
 

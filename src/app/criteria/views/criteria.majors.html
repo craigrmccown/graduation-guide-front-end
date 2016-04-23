@@ -3,11 +3,16 @@
         <h1>Select Your Majors</h1>
     </div>
 </div>
+<div class="row" s-pb="8">
+    <div class="col-6">
+        <input placeholder="Search Majors" class="input input-sm" ng-model="majorSearch"/>
+    </div>
+</div>
 <div class="row">
     <div class="col-12">
         <div s-mr="2" s-mb="2"
              class="card card--fixed card--light card--selectable"
-             ng-repeat="major in majors" ng-click="selectMajor(major)">
+             ng-repeat="major in majors | filter:majorSearch" ng-click="selectMajor(major)">
             <div class="card__header"
                 ng-class="{'card__header--selected': isSelected(major)}">
                 {{ major.name }}
