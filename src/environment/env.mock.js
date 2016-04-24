@@ -4,6 +4,6 @@ angular.module('gg.config', [])
     .factory('Environment', function() {
         return {
             name: 'mock',
-            path: ''
+            path: 'http://graduation-guide-api.herokuapp.com'
         }
     });
