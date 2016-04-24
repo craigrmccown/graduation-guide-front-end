@@ -14,11 +14,11 @@ angular.module('gg.app')
             } else {
                 $scope.selectedCourses.push(course);
             }
-        }
+        };
 
         $scope.isSelected = function(course) {
             return !!_.findWhere($scope.selectedCourses, { id: course.id });
-        }
+        };
 
         $scope.finish = function() {
              // if (!$scope.allStepsComplete()) {

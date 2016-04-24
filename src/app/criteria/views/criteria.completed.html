@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-12" s-pt="4" s-pb="8">
+        <h1 t-font="h1">Choose the Courses You Have Already Completed</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card card--fixed card--selectable card--light" ng-repeat="course in courses" ng-click="selectCourse(course)">
+            <div class="card__header"
+                 ng-class="{ 'card__header--selected': isSelected(course) }">
+                {{ course.name }}
+            </div>
+            <div class="card__body">{{ course.description }}</div>
+        </div>
+    </div>
+</div>
+<div ui-view></div>

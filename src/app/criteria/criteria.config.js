@@ -31,5 +31,15 @@ angular.module('gg.app')
                         return Minor.getAll();
                     }
                 }
+            })
+            .state('app.criteria.completed', {
+                url: '/completed',
+                controller: 'CriteriaCompletedCtrl',
+                templateUrl: '/app/criteria/views/criteria.completed.html',
+                resolve: {
+                    'CompletedCourses': function(Course) {
+                        return Course.getAll();
+                    }
+                }
             });
     });

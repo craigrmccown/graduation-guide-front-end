@@ -47,6 +47,18 @@ angular.module('gg.app')
                         return true;
                     },
                     incompleteMessage: 'You must select at least one minor'
+                },
+                {
+                    order: 3,
+                    name: 'Courses',
+                    state: 'app.criteria.completed',
+                    transitionFrom: function() {
+                        return CurrentUser.saveMinors();
+                    },
+                    isComplete: function() {
+                        return true;
+                    },
+                    incompleteMessage: 'You must select at least one minor'
                 }
             ]
         };
@@ -96,7 +108,7 @@ angular.module('gg.app')
             $scope.withErrorNotification(
                 $scope.currentStep.transitionFrom(),
                 function() {
-                    $state.go('app.completed');
+                    $state.go('app.profile');
                 }
             );
         };
