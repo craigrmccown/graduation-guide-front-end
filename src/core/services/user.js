@@ -31,7 +31,7 @@ angular.module('gg.services')
         }
 
         User.getCurrent = function() {
-            return $http.get(Environment.path + '/users/me').then(
+            return $http.get(Environment.path + '/auth/whoami').then(
                 function(response) {
                     return new User(response.data);
                 }
@@ -81,15 +81,15 @@ angular.module('gg.services')
         };
 
         User.prototype.saveMajors = function() {
-            return $http.post(Environment.path + '/users/me/majors', this.majors);
+            return $http.put(Environment.path + '/majors', this.majors);
         };
 
         User.prototype.saveTracks = function() {
-            return $http.post(Environment.path + '/users/me/tracks', this.tracks);
+            return $http.put(Environment.path + '/tracks', this.tracks);
         };
 
         User.prototype.saveMinors = function() {
-            return $http.post(Environment.path + '/users/me/minors', this.minors);
+            return $http.put(Environment.path + '/minors', this.minors);
         };
 
 

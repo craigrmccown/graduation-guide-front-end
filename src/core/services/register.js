@@ -8,7 +8,7 @@ angular.module('gg.services')
         }
 
         Register.prototype.register = function() {
-            return $http.post(Environment.path + '/users', this);
+            return $http.post(Environment.path + '/auth/register', this);
         }
 
         return Register;
