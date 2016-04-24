@@ -26,18 +26,6 @@ angular.module('gg.app')
                 },
                 {
                     order: 1,
-                    name: 'Tracks',
-                    state: 'app.criteria.tracks',
-                    transitionFrom: function() {
-                        return CurrentUser.saveTracks();
-                    },
-                    isComplete: function() {
-                        return CurrentUser.tracks.length > 0;
-                    },
-                    incompleteMessage: 'You must select at least one track'
-                },
-                {
-                    order: 2,
                     name: 'Minors',
                     state: 'app.criteria.minors',
                     transitionFrom: function() {
@@ -49,7 +37,7 @@ angular.module('gg.app')
                     incompleteMessage: 'You must select at least one minor'
                 },
                 {
-                    order: 3,
+                    order: 2,
                     name: 'Courses',
                     state: 'app.criteria.completed',
                     transitionFrom: function() {

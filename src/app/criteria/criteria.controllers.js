@@ -16,10 +16,7 @@ angular.module('gg.app')
 
         $scope.isSelected = function(major) {
             return !!CurrentUser.findMajorById(major.id);
-        }
-    })
-    .controller('CriteriaTracksCtrl', function($scope, $state, CurrentUser) {
-        $scope.majors = CurrentUser.majors;
+        };
 
         $scope.selectTrack = function(track) {
             if (CurrentUser.findTrackById(track.id)) {
@@ -29,7 +26,7 @@ angular.module('gg.app')
             }
         };
 
-        $scope.isSelected = function(track) {
+        $scope.isTrackSelected = function(track) {
             return !!CurrentUser.findTrackById(track.id);
         }
     })
@@ -47,4 +44,7 @@ angular.module('gg.app')
         $scope.isSelected = function(minor) {
             return !!CurrentUser.findMinorById(minor.id);
         }
+    })
+    .controller('CriteriaCompletedCtrl', function () {
+
     });

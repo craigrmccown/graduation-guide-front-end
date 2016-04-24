@@ -17,11 +17,6 @@ angular.module('gg.app')
                     }
                 }
             })
-            .state('app.criteria.tracks', {
-                url: '/tracks',
-                controller: 'CriteriaTracksCtrl',
-                templateUrl: '/app/criteria/views/criteria.tracks.html'
-            })
             .state('app.criteria.minors', {
                 url: '/minor',
                 controller: 'CriteriaMinorsCtrl',
