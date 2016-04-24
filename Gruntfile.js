@@ -12,6 +12,7 @@ module.exports = function(grunt) {
         },
         env: {
             mock: { ENV: 'mock' },
+            dev: { ENV: 'dev' },
             prod: { ENV: 'prod' }
         },
         preprocess: {
@@ -140,6 +141,11 @@ module.exports = function(grunt) {
 
     grunt.registerTask('develop.mock', [
         'env:mock',
+        'server'
+    ]);
+
+    grunt.registerTask('develop.dev', [
+        'env:dev',
         'server'
     ]);
     
