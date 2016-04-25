@@ -31,3 +31,31 @@
     height: 100%;
     bottom: 0;
 }
+
+
+$profile-body-height: 173px;
+$profile-body-right-width: 325px;
+
+.profile-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $profile-body-height;
+}
+.profile-body__left {
+    position: absolute;
+    top: $profile-body-height;
+    left: 0;
+    right: $profile-body-right-width;
+    bottom: 0;
+}
+
+.profile-body__right {
+    position: absolute;
+    top: $profile-body-height;
+    right: 0;
+    bottom: 0;
+    width: $profile-body-right-width;
+    overflow: auto;
+}

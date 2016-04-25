@@ -21,6 +21,9 @@ angular.module('gg.app')
                 resolve: {
                     'CurrentUser': function(User) {
                         return User.getCurrent();
+                    },
+                    'CompletedCourses': function (CurrentUser) {
+                        return CurrentUser.queryCompletedCourses();
                     }
                 }
             })

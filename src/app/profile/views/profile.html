@@ -1,16 +1,23 @@
-<div s-row s-px="8" s-py="4">
+<div s-row s-py="4">
     <!--USER EMAIL-->
-    <div s-row s-pb="12" s-pt="4">
+    <div s-row s-pb="12" s-pt="4" s-px="8">
         <h1 t-font="h1">{{CurrentUser.email}}</h1>
     </div>
-    <div s-row>
-        <!--USER MAJORS & TRACKS-->
-        <div s-row s-pb="12">
-            <div s-row s-pb="4">
-                <h2 t-font="h2 small-caps faded">Majors</h2>
-            </div>
-            <div ng-repeat="major in CurrentUser.majors" s-row s-px="4">
-                <span t-font="h4">{{major.name}} - </span>
+    <div class="profile-body__left">
+        <div s-row s-px="8">
+            <!--USER MAJORS & TRACKS-->
+            <div s-row s-pb="12">
+                <div s-row s-pb="4">
+                    <div s-col="11">
+                        <h2 t-font="h2 small-caps faded">Majors</h2>
+                    </div>
+                    <div s-col="1">
+                        <i t-font="interact muted" s-pull="left" s-pl="4" s-pt="1"
+                           class="fa fa-edit" ng-click="goToEditMajors()"></i>
+                    </div>
+                </div>
+                <div ng-repeat="major in CurrentUser.majors" s-row s-px="4">
+                    <span t-font="h4">{{major.name}} - </span>
 
                 <span ng-if="CurrentUser.getMajorTracks(major).length">
                     <span ng-repeat="majorTrack in CurrentUser.getMajorTracks(major)">
@@ -20,15 +27,40 @@
                 <span ng-if="!CurrentUser.getMajorTracks(major).length">
                     <span t-font="h6 faded"> No tracks selected.</span>
                 </span>
+                </div>
+            </div>
+            <!--USER MINORS-->
+            <div s-row s-pb="4">
+                <div s-row s-pb="2">
+                    <div s-col="11">
+                        <h2 t-font="h2 small-caps faded">Minors</h2>
+                    </div>
+                    <div s-col="1">
+                        <i t-font="interact muted" s-pull="left" s-pl="4" s-pt="1"
+                           ng-click="goToEditMinors()" class="fa fa-edit"></i>
+                    </div>
+                </div>
+                <div ng-repeat="minor in CurrentUser.minors" s-row>
+                    <div t-font="h4">{{minor.name}}</div>
+                </div>
             </div>
         </div>
-        <!--USER MINORS-->
-        <div s-row s-pb="4">
-            <div s-row s-pb="2">
-                <h2 t-font="h2 small-caps faded">Minors</h2>
+    </div>
+    <div class="profile-body__right">
+        <div s-row>
+            <div s-col="11">
+                <h3 t-font="small-caps h3 faded" s-pb="4">Completed Courses</h3>
             </div>
-            <div ng-repeat="minor in CurrentUser.minors" s-row>
-                <div t-font="h4">{{minor.name}}</div>
+            <div s-col="1">
+                <i t-font="interact muted" s-pull="right" s-pl="4" s-pt="1"
+                   class="fa fa-edit" ng-click="goToEditCompletedCourses()"></i>
+            </div>
+        </div>
+        <div s-row ng-if="CurrentUser.completedCourses.length"
+             s-pb="2" style="border-top: 1px solid #e8e7e6">
+            <div s-row ng-repeat="completedCourse in CurrentUser.completedCourses"
+                 s-pt="2" s-pb="2" style="border-bottom: 1px solid #e8e7e6">
+                <div s-px="2">{{completedCourse.name}}</div>
             </div>
         </div>
     </div>

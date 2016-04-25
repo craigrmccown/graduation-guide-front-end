@@ -3,11 +3,27 @@ angular.module('gg.app')
         $scope.$state = $state;
 
         /* if already onboarded just send to their profile view */
-        //$scope.isUserOnboarded = CurrentUser.majors && CurrentUser.majors.length;
+        $scope.isUserOnboarded = CurrentUser.majors && CurrentUser.majors.length;
+        //zz
+        $scope.editing = false;
+        $scope.setEditing = function (isEditing) {
+            $scope.editing = !!isEditing;
+        };
+        //zz lol this is new
+        $scope.saveHandler = null;
+        $scope.setSaveHandler = function (saveHandler) {
+            $scope.saveHandler = saveHandler;
+        };
+        $scope.saveProfile = function () {
+            if ($scope.saveHandler) {
+                $scope.saveHandler();
+            }
+        };
+
         $scope.CurrentUser = CurrentUser;
 
         var userProfileCfg = {
-            name: 'User Profile',
+            name: 'My Profile',
             state: 'app.profile'
         };
 
@@ -39,7 +55,7 @@ angular.module('gg.app')
                 },
                 {
                     order: 2,
-                    name: 'Courses',
+                    name: 'Completed Courses',
                     state: 'app.criteria.completed',
                     transitionFrom: function() {
                         return CurrentUser.saveCompletedCourses();
@@ -63,6 +79,10 @@ angular.module('gg.app')
             return true;
         };
 
+        $scope.setCurrentStep = function (step) {
+            $scope.currentStep = step;
+        };
+
         $scope.goToCourseCritique = function (course, $event) {
             if (course) {
                 var courseSlug = course.name.replace(/\s+/g, '');
@@ -72,19 +92,32 @@ angular.module('gg.app')
             $event.stopPropagation();
         };
 
+        $scope.goToProfile = function () {
+            $scope.currentStep = userProfileCfg;
+            $state.go($scope.currentStep.state);
+        };
+
+
         $scope.goToStep = function(step) {
             if (!$scope.stepIsAvailable(step)) {
                 notifyIncomplete();
                 return;
             }
 
-            $scope.withErrorNotification(
-                $scope.currentStep.transitionFrom(),
-                function() {
-                    $scope.currentStep = step;
-                    $state.go(step.state);
-                }
-            );
+            function goStep(step) {
+                $scope.currentStep = step;
+                $state.go(step.state);
+            }
+
+            //zzz
+            if ($scope.isUserOnboarded) {
+                goStep(step);
+            } else {
+                $scope.withErrorNotification(
+                    $scope.currentStep.transitionFrom(),
+                    goStep(step)
+                );
+            }
         };
 
         $scope.allStepsComplete = function() {
@@ -129,6 +162,16 @@ angular.module('gg.app')
             }
 
             return $scope.wizardConfig.steps[$scope.wizardConfig.steps.length - 1];
+        }
+
+        function initCurrStep() {
+            if (!$scope.currentStep) {
+
+                $scope.currentStep = $scope.isUserOnboarded
+                    ? userProfileCfg
+                    : getCurrentWizardStep();
+            }
+
         }
 
         $scope.currentStep = $scope.isUserOnboarded ? userProfileCfg : getCurrentWizardStep();

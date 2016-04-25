@@ -7,6 +7,26 @@
  */
 angular.module('gg.app')
     .controller('ProfileCtrl', function ($scope, CurrentUser) {
-        console.log(CurrentUser);
+        $scope.setEditing(0);
+
+        $scope.setCurrentStep({
+            name: 'My Profile',
+            state: 'app.profile'
+        });
+
+        //zzz
+        $scope.goToEditMajors = function () {
+            $scope.goToStep($scope.wizardConfig.steps[0]);
+        };
+
+        //zzz
+        $scope.goToEditMinors = function () {
+            $scope.goToStep($scope.wizardConfig.steps[1]);
+        };
+
+        //zzz
+        $scope.goToEditCompletedCourses = function () {
+            $scope.goToStep($scope.wizardConfig.steps[2]);
+        };
         
     });

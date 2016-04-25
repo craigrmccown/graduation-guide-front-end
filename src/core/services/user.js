@@ -112,14 +112,22 @@ angular.module('gg.services')
         };
 
         User.prototype.queryCompletedCourses = function () {
+            var self = this;
             return $http.get(Environment.path + '/courses/completed')
                 .then(function (response) {
-                    debugger;
+                    var completedCourses = [];
+                    if (response && response.data && response.data.length) {
+                        for (var i = 0; i < response.data.length; i++) {
+                            completedCourses.push(new Course(response.data[i]));
+                        }
+                    }
+                    //RESET
+                    self.completedCourses = completedCourses;
+                    return completedCourses;
                 })
         };
 
         User.prototype.saveCompletedCourses = function() {
-            debugger;
             return $http.put(Environment.path + '/courses/completed', this.completedCourses);
         };
 
