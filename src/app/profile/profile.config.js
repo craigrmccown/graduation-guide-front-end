@@ -13,6 +13,9 @@ angular.module('gg.app')
                 controller: 'ProfileCtrl',
                 templateUrl: '/app/profile/views/profile.html',
                 resolve: {
+                    Prereqs: function (CurrentUser) {
+                        return CurrentUser.queryPrereqs();
+                    }
                     //Requirements: function (CurrentUser) {
                     //    return CurrentUser.queryRequirements();
                     //}

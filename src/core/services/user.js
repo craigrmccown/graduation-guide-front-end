@@ -103,6 +103,13 @@ angular.module('gg.services')
             return majorTracks;
         };
 
+        User.prototype.queryPrereqs = function () {
+            return $http.get(Environment.path + '/prereqs')
+                .then(function (response) {
+                    debugger;
+                });
+        };
+
         User.prototype.queryRequirements = function () {
             return $http.get(Environment.path + '/requirements')
                 .then(function (response) {

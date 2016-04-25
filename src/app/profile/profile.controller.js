@@ -6,8 +6,9 @@
  * File:
  */
 angular.module('gg.app')
-    .controller('ProfileCtrl', function ($scope, CurrentUser) {
+    .controller('ProfileCtrl', function ($scope, CurrentUser, Prereqs) {
         $scope.setEditing(0);
+        debugger;
 
         $scope.setCurrentStep({
             name: 'My Profile',
