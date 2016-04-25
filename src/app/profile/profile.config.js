@@ -11,6 +11,14 @@ angular.module('gg.app')
             .state('app.profile', {
                 url: '/profile',
                 controller: 'ProfileCtrl',
-                templateUrl: '/app/profile/views/profile.html'
+                templateUrl: '/app/profile/views/profile.html',
+                resolve: {
+                    CompletedCourses: function (CurrentUser) {
+                        return CurrentUser.queryCompletedCourses();
+                    }
+                    //Requirements: function (CurrentUser) {
+                    //    return CurrentUser.queryRequirements();
+                    //}
+                }
             });
     });

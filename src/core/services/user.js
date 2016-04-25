@@ -103,6 +103,25 @@ angular.module('gg.services')
             return majorTracks;
         };
 
+        User.prototype.queryRequirements = function () {
+            return $http.get(Environment.path + '/requirements')
+                .then(function (response) {
+                    // TODO not implemented yet :(
+                    debugger;
+                })
+        };
+
+        User.prototype.queryCompletedCourses = function () {
+            return $http.get(Environment.path + '/courses/completed')
+                .then(function (response) {
+                    debugger;
+                })
+        };
+
+        User.prototype.saveCompletedCourses = function() {
+            debugger;
+            return $http.put(Environment.path + '/courses/completed', this.completedCourses);
+        };
 
         return User;
     });

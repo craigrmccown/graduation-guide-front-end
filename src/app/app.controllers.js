@@ -42,7 +42,7 @@ angular.module('gg.app')
                     name: 'Courses',
                     state: 'app.criteria.completed',
                     transitionFrom: function() {
-                        return CurrentUser.saveMinors();
+                        return CurrentUser.saveCompletedCourses();
                     },
                     isComplete: function() {
                         return true;

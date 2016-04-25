@@ -45,10 +45,25 @@ angular.module('gg.app')
             return !!CurrentUser.findMinorById(minor.id);
         }
     })
-    .controller('CriteriaCompletedCtrl', function ($scope, Courses) {
+    .controller('CriteriaCompletedCtrl', function ($scope, Courses, CurrentUser) {
         $scope.courses = Courses;
 
+        $scope.selectCourse = function(course) {
+            if ($scope.isSelected(course)) {
+                CurrentUser.completedCourses = _.filter(
+                    CurrentUser.completedCourses,
+                    function(selected) {
+                        return selected.id != course.id;
+                    }
+                );
+            } else {
+                CurrentUser.completedCourses.push(course);
+            }
+        };
 
+        $scope.isSelected = function(course) {
+            return !!_.findWhere(CurrentUser.completedCourses, { id: course.id });
+        };
 
 
     });
