@@ -69,6 +69,11 @@
     <script src="/app/mock.js"></script>
     <!-- @endif -->
 
+    <!-- @if ENV == 'dev' -->
+    <script src="/environment/env.dev.js"></script>
+    <script src="/app/bootstrap.js"></script>
+    <!-- @endif -->
+
     <!-- @if ENV == 'prod' -->
     <script src="/environment/env.prod.js"></script>
     <script src="/app/bootstrap.js"></script>
