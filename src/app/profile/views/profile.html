@@ -40,13 +40,18 @@
                            ng-click="goToEditMinors()" class="fa fa-edit"></i>
                     </div>
                 </div>
-                <div ng-repeat="minor in CurrentUser.minors" s-row>
-                    <div t-font="h4">{{minor.name}}</div>
+                <div s-row ng-if="CurrentUser.minors.length" s-px="4">
+                    <div ng-repeat="minor in CurrentUser.minors" s-row>
+                        <div t-font="h4">{{minor.name}}</div>
+                    </div>
+                </div>
+                 <div s-row ng-if="!CurrentUser.minors.length" s-px="4">
+                    <div t-font="h6 faded">You don't have any minors.</div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="profile-body__right">
+    <div class="profile-body__right" s-px="4">
         <div s-row>
             <div s-col="11">
                 <h3 t-font="small-caps h3 faded" s-pb="4">Completed Courses</h3>
@@ -56,6 +61,9 @@
                    class="fa fa-edit" ng-click="goToEditCompletedCourses()"></i>
             </div>
         </div>
+         <span s-row ng-if="!CurrentUser.completedCourses.length">
+            <span t-font="h6 faded">You haven't completed any courses yet.</span>
+        </span>
         <div s-row ng-if="CurrentUser.completedCourses.length"
              s-pb="2" style="border-top: 1px solid #e8e7e6">
             <div s-row ng-repeat="completedCourse in CurrentUser.completedCourses"
