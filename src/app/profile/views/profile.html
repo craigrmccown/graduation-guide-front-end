@@ -1,33 +1,35 @@
-<div class="row" s-px="8" s-py="4">
+<div s-row s-px="8" s-py="4">
     <!--USER EMAIL-->
-    <div class="row" s-pb="4">
-        <span t-font="h2">{{CurrentUser.email}}</span>
+    <div s-row s-pb="12" s-pt="4">
+        <span t-font="h1">{{CurrentUser.email}}</span>
     </div>
-    <!--USER MAJORS-->
-    <div class="row" s-pb="4">
-        <div class="row" s-pb="2">
-            <span t-font="h5 small-caps">Majors</span>
+    <div s-row s-px="4">
+        <!--USER MAJORS & TRACKS-->
+        <div s-row s-pb="12">
+            <div s-row s-pb="4">
+                <h2 t-font="h2 small-caps faded">Majors</h2>
+            </div>
+            <div ng-repeat="major in CurrentUser.majors" s-row s-px="4">
+                <span t-font="h4">{{major.name}} - </span>
+
+                <span ng-if="CurrentUser.getMajorTracks(major).length">
+                    <span ng-repeat="majorTrack in CurrentUser.getMajorTracks(major)">
+                        <span t-font="h6">{{majorTrack.name}}<span ng-if="!$last">, </span></span>
+                    </span>
+                </span>
+                <span ng-if="!CurrentUser.getMajorTracks(major).length">
+                    <span t-font="h6 faded"> No tracks selected.</span>
+                </span>
+            </div>
         </div>
-        <div ng-repeat="major in CurrentUser.majors" class="row">
-            <div>{{major.name}}</div>
-        </div>
-    </div>
-    <!--USER TRACKS-->
-    <div class="row" s-pb="4">
-        <div class="row" s-pb="2">
-            <span t-font="h5 small-caps">Tracks</span>
-        </div>
-        <div ng-repeat="track in CurrentUser.tracks" class="row">
-            <div>{{track.name}}</div>
-        </div>
-    </div>
-    <!--USER MINORS-->
-    <div class="row" s-pb="4">
-        <div class="row" s-pb="2">
-            <span t-font="h5 small-caps">Minors</span>
-        </div>
-        <div ng-repeat="minor in CurrentUser.minors" class="row">
-            <div>{{minor.name}}</div>
+        <!--USER MINORS-->
+        <div s-row s-pb="4">
+            <div s-row s-pb="2">
+                <h2 t-font="h2 small-caps faded">Minors</h2>
+            </div>
+            <div ng-repeat="minor in CurrentUser.minors" s-row>
+                <div t-font="h4">{{minor.name}}</div>
+            </div>
         </div>
     </div>
 

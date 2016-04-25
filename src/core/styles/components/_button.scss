@@ -34,6 +34,10 @@
     box-sizing: border-box;
 }
 
+.button--primary {
+    @include button-color($brand-primary, $light-mono);
+}
+
 .button--accent {
     @include button-color($accent, $light-mono);
 }

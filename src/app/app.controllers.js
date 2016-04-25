@@ -1,5 +1,6 @@
 angular.module('gg.app')
-    .controller('AppCtrl', function($scope, $state, CurrentUser, Notifications) {
+    .controller('AppCtrl', function($scope, $window, $state, CurrentUser, Notifications) {
+        $scope.$state = $state;
 
         /* if already onboarded just send to their profile view */
         //$scope.isUserOnboarded = CurrentUser.majors && CurrentUser.majors.length;
@@ -60,6 +61,15 @@ angular.module('gg.app')
             }
 
             return true;
+        };
+
+        $scope.goToCourseCritique = function (course, $event) {
+            if (course) {
+                var courseSlug = course.name.replace(/\s+/g, '');
+                $window.open('https://critique.gatech.edu/course.php?id=' + courseSlug, '_blank');
+            }
+
+            $event.stopPropagation();
         };
 
         $scope.goToStep = function(step) {

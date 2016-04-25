@@ -7,17 +7,17 @@
     </div>
 </div>
 <div class="layout-header skin-header">
-    <div class="row" s-pxy="sm">
-        <div class="col-1">
+    <div s-row s-pxy="sm">
+        <div s-col="1">
             <!--<div class="logo">-->
             <img src="/assets/img/logo.png" alt="Graduation Guide" />
             <!--</div>-->
         </div>
-        <div class="col-11">
-            <div class="row" ng-if="isUserOnboarded">
+        <div s-col="10">
+            <div s-row ng-if="isUserOnboarded">
                 <span t-font="h2">{{currentStep.name}}</span>
             </div>
-            <div class="row" ng-if="!isUserOnboarded">
+            <div s-row ng-if="!isUserOnboarded">
                 <div class="col-11">
                     <div class="breadcrumbs breadcrumbs--medium breadcrumbs--light">
                         <div class="breadcrumbs__breadcrumb"
@@ -29,13 +29,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-1">
-                    <div class="button button--rounded button--medium button--accent"
-                         ng-click="finish()"
-                         ng-disabled="!allStepsComplete()">
-                        <i class="fa fa-check"></i>
-                    </div>
-                </div>
+            </div>
+        </div>
+        <div s-col="1">
+            <div ng-if="!isUserOnboarded"
+                 class="button button--rounded button--medium button--accent"
+                 ng-click="finish()"
+                 ng-disabled="!allStepsComplete()">
+                <span t-font="h3 small-caps">Finish</span>
+            </div>
+        </div>
+        <div s-col="1">
+            <div ng-if="isUserOnboarded && $state.contains('criteria')"
+                 class="button button--rounded button--medium button--primary">
+                <span t-font="h3 small-caps">Save</span>
             </div>
         </div>
     </div>

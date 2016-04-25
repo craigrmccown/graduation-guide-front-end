@@ -92,6 +92,16 @@ angular.module('gg.services')
             return $http.put(Environment.path + '/minors', this.minors);
         };
 
+        User.prototype.getMajorTracks = function (major) {
+            var majorTracks = [];
+            var maj = _.findWhere(this.majors, { id: major.id });
+            if (maj) {
+                majorTracks = _.filter(this.tracks, function(track) {
+                    return track.majorId != maj.id;
+                });
+            }
+            return majorTracks;
+        };
 
 
         return User;

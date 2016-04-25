@@ -7,6 +7,7 @@ angular.module('gg.services')
             this.name = data.name;
             this.description = data.description;
             this.tracks = [];
+            this.userTracks = [];
 
             for (var i = 0; i < data.tracks.length; i ++) {
                 this.tracks.push(new Track(data.tracks[i]));
@@ -24,7 +25,7 @@ angular.module('gg.services')
                     
                     return majors;
                 });
-        }
+        };
 
         return Major;
     });

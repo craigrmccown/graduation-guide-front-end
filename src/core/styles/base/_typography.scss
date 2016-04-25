@@ -16,6 +16,12 @@ html {
   line-height: $base-line-height;
 }
 
+
+[t-font~="faded"],
+.faded, %faded {
+  color: $mono;
+}
+
 [t-font~="muted"],
 .mute, %mute {
   color: $mono-light;

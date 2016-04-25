@@ -48,4 +48,7 @@ angular.module('gg.app')
     .controller('CriteriaCompletedCtrl', function ($scope, Courses) {
         $scope.courses = Courses;
 
+
+
+
     });

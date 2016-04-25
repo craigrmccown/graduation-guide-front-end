@@ -1,6 +1,6 @@
 <div s-row s-pt="4" s-pb="8" s-px="4">
     <div class="6">
-        <h2 t-font="h2">Select the Courses You Have Already Completed</h2>
+        <h1 t-font="h1">Select the Courses You Have Already Completed</h1>
     </div>
 </div>
 <div s-row s-px="4" s-pb="12">
@@ -16,7 +16,8 @@
              ng-click="selectCourse(course)">
             <div class="card__header"
                  ng-class="{ 'card__header--selected': isSelected(course) }">
-                {{ course.name }}
+                {{ course.name }} <i s-pull="right" s-pl="2"
+                                     ng-click="goToCourseCritique(course, $event)" class="fa fa-external-link"></i>
             </div>
             <div class="card__body">{{ course.description }}</div>
         </div>
