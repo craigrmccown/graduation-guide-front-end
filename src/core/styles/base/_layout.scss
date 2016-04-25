@@ -2,24 +2,32 @@
 
 .layout-header {
     @include skin-content;
-    position: relative;
+    position: absolute;
     height: $large-header-height;
+    left: 0;
+    right: 0;
     @include box-shadow($z1-shadow);
     z-index: 1;
 }
 
 .layout-main {
+    position: absolute;
     background: $white;
-    position: relative;
+    top: $large-header-height;
     bottom: 0;
-
+    left: 0;
+    right: 0;
     height: 100%;
     z-index: 0;
+    overflow: auto;
 }
 
 
 .layout-main__content-box {
     position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 100%;
     bottom: 0;
 }

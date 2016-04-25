@@ -284,6 +284,7 @@ angular.module('gg.mock', ['gg.app', 'ngMockE2E'])
                 return [200, sections, {}];
             }
         );
+
     });
 
 angular.bootstrap(document, ['gg.mock']);

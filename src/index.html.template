@@ -5,7 +5,7 @@
     <link rel="icon" type="image/png" href="/assets/img/favicon-32x32.png?v=2" sizes="32x32">
     <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.css" />
 </head>
-<body>
+<body style="overflow:hidden;">
     <!-- build:css(src) /assets/css/build.css -->
     <link rel="stylesheet" href="/core/styles/main.css" />
     <!-- endbuild -->
