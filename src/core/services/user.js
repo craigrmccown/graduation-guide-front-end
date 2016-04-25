@@ -104,17 +104,37 @@ angular.module('gg.services')
         };
 
         User.prototype.queryPrereqs = function () {
+            var self = this;
             return $http.get(Environment.path + '/prereqs')
                 .then(function (response) {
-                    debugger;
+                    var prereqs = [];
+                    if (response && response.data && response.data.length) {
+                        for (var i = 0; i < response.data.length; i++) {
+                            prereqs.push(response.data[i]);
+                        }
+                    }
+                    //RESET
+                    self.prereqs = prereqs;
+                    return prereqs;
                 });
         };
 
         User.prototype.queryRequirements = function () {
+            var self = this;
             return $http.get(Environment.path + '/requirements')
                 .then(function (response) {
-                    // TODO not implemented yet :(
-                    debugger;
+                    var reqs = [];
+                    if (response && response.data && response.data.length) {
+                        for (var i = 0; i < response.data.length; i++) {
+                            if (!response.data[i].isSatisfied) {
+                                reqs.push(response.data[i]);
+                            }
+                        }
+                    }
+
+                    //RESET
+                    self.requirements = reqs;
+                    return reqs;
                 })
         };
 

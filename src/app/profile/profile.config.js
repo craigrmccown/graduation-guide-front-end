@@ -15,10 +15,10 @@ angular.module('gg.app')
                 resolve: {
                     Prereqs: function (CurrentUser) {
                         return CurrentUser.queryPrereqs();
+                    },
+                    Requirements: function (CurrentUser) {
+                        return CurrentUser.queryRequirements();
                     }
-                    //Requirements: function (CurrentUser) {
-                    //    return CurrentUser.queryRequirements();
-                    //}
                 }
             });
     });

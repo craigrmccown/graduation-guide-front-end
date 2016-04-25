@@ -17,6 +17,13 @@ html {
 }
 
 
+[t-font~="danger"],
+.danger, %danger {
+  color: $brand-danger;
+}
+
+
+
 [t-font~="faded"],
 .faded, %faded {
   color: $mono;

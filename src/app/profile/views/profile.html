@@ -30,7 +30,7 @@
                 </div>
             </div>
             <!--USER MINORS-->
-            <div s-row s-pb="4">
+            <div s-row s-pb="12">
                 <div s-row s-pb="2">
                     <div s-col="11">
                         <h2 t-font="h2 small-caps faded">Minors</h2>
@@ -47,6 +47,37 @@
                 </div>
                  <div s-row ng-if="!CurrentUser.minors.length" s-px="4">
                     <div t-font="h6 faded">You don't have any minors.</div>
+                </div>
+            </div>
+
+            <!--USER REQS-->
+            <div s-row s-pb="4">
+                <div s-row s-pb="2">
+                    <div s-col="11">
+                        <h2 t-font="h2 small-caps faded"><span t-font="danger" s-px="2">{{CurrentUser.requirements.length}}</span>Requirements Remaining!</h2>
+                    </div>
+                </div>
+                <div s-row ng-if="CurrentUser.requirements.length" s-px="4" s-pb="12">
+                    <div ng-repeat="requirement in CurrentUser.requirements" s-row s-py="2">
+                        <div s-row>
+                            <div t-font="h5">{{requirement.unsatisfiedDescription}}</div>
+                        </div>
+                        <div s-row s-px="4">
+                            <div ng-repeat="course in requirement.courses">
+                                <div t-font="h6">{{course.name}}: {{course.description}}</div>
+
+                                <div s-row s-px="4">
+                                    <div ng-repeat="section in course.sections">
+                                        <div s-row t-font="h6">{{section.professor}}: {{section.days}}</div>
+                                        <div s-row t-font="h6 small-caps">CRN: {{section.crn}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div s-row ng-if="!CurrentUser.requirements.length" s-px="4">
+                    <div t-font="h6 faded">You don't have any requirements.</div>
                 </div>
             </div>
         </div>

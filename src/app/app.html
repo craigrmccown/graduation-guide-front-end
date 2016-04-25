@@ -9,20 +9,19 @@
 <div class="layout-header skin-header">
     <div s-row s-pxy="sm">
         <div s-col="11">
-            <div s-row>
-                <img ng-click="goToProfile()" t-font="interact" s-pull="left"
-                     src="/assets/img/logo.png" alt="Graduation Guide"/>
-                <h4 ng-if="isUserOnboarded" s-pt="1.5" t-font="h4" s-pull="left">{{currentStep.name}}</h4>
-                <div ng-if="!isUserOnboarded" class="breadcrumbs breadcrumbs--medium breadcrumbs--light">
-                    <div class="breadcrumbs__breadcrumb"
-                         ng-repeat="step in wizardConfig.steps"
-                         ng-disabled="!stepIsAvailable(step)"
-                         ng-click="goToStep(step)"
-                         ng-class="{'breadcrumbs__breadcrumb--active': step == currentStep }">
-                        {{step.name}}
-                    </div>
-                </div>
-            </div>
+            <img ng-click="goToProfile()" t-font="interact" s-pull="left"
+                 src="/assets/img/logo.png" alt="Graduation Guide"/>
+            <span ng-if="isUserOnboarded" t-font="h4" s-mt="3">{{currentStep.name}}</span>
+            <span ng-if="!isUserOnboarded" s-pull="left" style="width: 700px;"
+                 class="breadcrumbs breadcrumbs--medium breadcrumbs--light">
+                <span class="breadcrumbs__breadcrumb"
+                     ng-repeat="step in wizardConfig.steps"
+                     ng-disabled="!stepIsAvailable(step)"
+                     ng-click="goToStep(step)"
+                     ng-class="{'breadcrumbs__breadcrumb--active': step == currentStep }">
+                    {{step.name}}
+                </span>
+            </span>
         </div>
         <div s-col="1">
             <div ng-if="!isUserOnboarded"
@@ -33,9 +32,9 @@
             </div>
         </div>
         <div s-col="1">
-            <div ng-if="isUserOnboarded && editing"
+            <div ng-if="isUserOnboarded && editing" ng-click="saveProfile()"
                  class="button button--rounded button--medium button--primary">
-                <span t-font="h3 small-caps" ng-click="saveProfile()">Save</span>
+                <span t-font="h3 small-caps">Save</span>
             </div>
         </div>
     </div>
