@@ -16,6 +16,11 @@ html {
   line-height: $base-line-height;
 }
 
+[t-font~="muted"],
+.mute, %mute {
+  color: $mono-light;
+}
+
 [t-font~="small"],
 .small, %small {
   font-size: $small;

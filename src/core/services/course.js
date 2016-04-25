@@ -2,10 +2,13 @@ angular.module('gg.services')
     .factory('Course', function($http, Environment) {
         function Course(data) {
             this.id = data.id;
+            this.createdAt = data.createdAt;
             this.name = data.name;
             this.description = data.description;
-            this.isCompleted = data.isCompleted;
-            this.sections = [];
+            this.hours = data.hours;
+            this.prereqId = data.prereqId;
+            this.updatedAt = data.updatedAt;
+            this.sections = data.sections || [];
         }
 
         Course.getAll = function(user) {
@@ -19,11 +22,11 @@ angular.module('gg.services')
 
                     return courses;
                 });
-        }
+        };
 
         Course.prototype.addSection = function(section) {
             this.sections.push(section);
-        }
+        };
 
         return Course;
     });

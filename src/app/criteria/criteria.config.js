@@ -32,7 +32,7 @@ angular.module('gg.app')
                 controller: 'CriteriaCompletedCtrl',
                 templateUrl: '/app/criteria/views/criteria.completed.html',
                 resolve: {
-                    'CompletedCourses': function(Course) {
+                    'Courses': function(Course) {
                         return Course.getAll();
                     }
                 }

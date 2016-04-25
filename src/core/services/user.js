@@ -93,5 +93,6 @@ angular.module('gg.services')
         };
 
 
+
         return User;
     });

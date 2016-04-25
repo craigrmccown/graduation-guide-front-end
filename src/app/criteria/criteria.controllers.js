@@ -45,6 +45,7 @@ angular.module('gg.app')
             return !!CurrentUser.findMinorById(minor.id);
         }
     })
-    .controller('CriteriaCompletedCtrl', function () {
+    .controller('CriteriaCompletedCtrl', function ($scope, Courses) {
+        $scope.courses = Courses;
 
     });
