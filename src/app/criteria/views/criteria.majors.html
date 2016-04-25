@@ -1,4 +1,4 @@
-<div class="row" s-pt="4" s-pb="12">
+<div s-row s-pt="4" s-pb="12">
     <div class="col-6">
         <h1 t-font="h1">Select Your Majors</h1>
     </div>
@@ -6,8 +6,8 @@
         <input placeholder="Search Majors" class="input input-sm" ng-model="majorSearch"/>
     </div>
 </div>
-<div class="row" s-pb="12" s-px="4">
-    <div class="col-12">
+<div s-row s-pb="12" s-px="4">
+    <div s-col="12">
         <div s-mr="4" s-mb="4"
              class="card card--fixed card--light card--selectable"
              ng-repeat="major in majors | filter:majorSearch" ng-click="selectMajor(major)">
@@ -20,7 +20,7 @@
     </div>
 </div>
 <div ng-if="CurrentUser.majors && CurrentUser.majors.length" s-py="12">
-    <div class="row" s-pb="8">
+    <div s-row s-pb="8">
         <div class="col-6" s-pt="4">
             <h1 t-font="h1">Select Your Tracks</h1>
         </div>
@@ -29,13 +29,14 @@
         </div>
     </div>
     <div ng-repeat="major in CurrentUser.majors" s-pb="8">
-        <div class="row" s-px="4">
+        <div s-row s-px="4">
             <div class="col-12" s-pb="4">
                 <h5 t-font="small-caps h5" c-text="">{{major.name}} Tracks</h5>
             </div>
         </div>
-        <div class="row" s-px="8" ng-if="major.tracks && major.tracks.length">
+        <div s-row s-px="8" ng-if="major.tracks && major.tracks.length">
             <div s-mr="4" s-mb="4"
+                 s-pull="right"
                  class="card card--fixed card--light card--selectable"
                  ng-repeat="track in major.tracks | filter:trackSearch" ng-click="selectTrack(track)">
                 <div class="card__header"
@@ -45,7 +46,7 @@
                 <div class="card__body">{{track.description}}</div>
             </div>
         </div>
-        <div class="row" s-px="4" ng-if="!major.tracks || !major.tracks.length">
+        <div s-row s-px="4" ng-if="!major.tracks || !major.tracks.length">
             <div class="col-12">
                 <span t-font="h6 small-caps muted">This major has no tracks available.</span>
             </div>

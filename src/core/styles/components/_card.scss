@@ -38,21 +38,36 @@
 }
 
 .card--fixed {
+    position: relative;
     width: 285px;
+    max-width: 285px;
+    height: 125px;
+    max-height: 125px;
     float: left;
 }
 
+$card-header-height: 56px;
 .card--light {
     .card__header, .card__body, .card__footer{
         border-color: $mono-light;
     }
 
     .card__header {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
         background: $mono-lighter;
         color: $medium-dark-mono;
+        height: $card-header-height;
     }
 
     .card__body {
+        position: absolute;
+        top: $card-header-height;
+        left: 0;
+        right: 0;
+        bottom: 0;
         background: $light-mono;
         color: $medium-dark-mono;
     }
